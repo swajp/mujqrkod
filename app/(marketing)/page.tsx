@@ -1,9 +1,9 @@
-import { ModeToggle } from "@/components/mode-toggle";
+import ControlPanel from "./_components/control-panel";
 
 export default function HomePage() {
   return (
-    <div>
-      <ModeToggle />
-    </div>
+    <>
+      <ControlPanel />
+    </>
   );
 }
