@@ -31,7 +31,6 @@ export default function Navbar() {
             {item.label}
           </Link>
         ))}
-        <ModeToggle />
       </div>
     </nav>
   );

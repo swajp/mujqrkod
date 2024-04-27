@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("antialiased", font.className)}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light">
           <div className="flex items-center ">
             <MaxWidthWrapper>{children}</MaxWidthWrapper>
           </div>
