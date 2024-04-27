@@ -30,7 +30,7 @@ import { QRCodeCanvas, QRCodeSVG } from "qrcode.react";
 import { useEffect, useRef, useState } from "react";
 
 export default function ControlPanel() {
-  const [URL, setURL] = useState("HTTPfmewkmfkmsdkfmdsfmkdsfmkmfdS");
+  const [URL, setURL] = useState("");
   const [bgColor, setBgColor] = useState("#FFFFFF");
   const [fgColor, setFgColor] = useState("#000000");
   const [errorCorrection, setErrorCorrection] = useState("L");
