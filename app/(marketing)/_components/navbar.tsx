@@ -9,7 +9,7 @@ export default function Navbar() {
   const NAVBAR_ITEMS = [
     {
       label: "Kontakt",
-      href: "/kontakt",
+      href: "mailto:me@swajp.me?subject=mujqrkod.cz - Kontakt",
     },
   ];
   const pathname = usePathname();

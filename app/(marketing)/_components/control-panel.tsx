@@ -1,4 +1,5 @@
 "use client";
+import DrieLogo from "@/components/drie-logo";
 import {
   Accordion,
   AccordionContent,
@@ -26,6 +27,7 @@ import {
   PrinterIcon,
   SettingsIcon,
 } from "lucide-react";
+import Link from "next/link";
 import { QRCodeCanvas, QRCodeSVG } from "qrcode.react";
 import { useEffect, useRef, useState } from "react";
 
@@ -254,7 +256,7 @@ export default function ControlPanel() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-          <div className="flex gap-2 mt-3 select-none *:cursor-pointer">
+          <div className="flex flex-wrap gap-2 mt-3 select-none *:cursor-pointer">
             <Badge
               onClick={saveToClipboard}
               variant="default"
@@ -290,7 +292,7 @@ export default function ControlPanel() {
           </div>
         </div>
       </div>
-      <div className="gap-6 py-4 lg:py-8 flex-col w-full lg:w-[400px]">
+      <div className="gap-6 flex py-4 lg:py-8 flex-col w-full lg:w-[400px]">
         <div
           ref={canvasRef}
           className="rounded-2xl flex items-center justify-center bg-background shadow-md p-4"
@@ -303,6 +305,14 @@ export default function ControlPanel() {
             level={errorCorrection}
           />
         </div>
+        <Link href={"https://drie.cz"}>
+          <div className="relative overflow-hidden inset-0 rounded-2xl flex bg-black p-6 h-[300px]">
+            <DrieLogo className="absolute size-72 -right-[30px] -bottom-[80px]" />
+            <h1 className="text-white text-3xl font-bold">
+              Tvorba moderních webů a aplikací.
+            </h1>
+          </div>
+        </Link>
       </div>
     </div>
   );
