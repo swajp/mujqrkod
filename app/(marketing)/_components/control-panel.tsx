@@ -17,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { track } from "@vercel/analytics";
 import jsPDF from "jspdf";
 import {
   ClipboardIcon,
@@ -40,6 +41,7 @@ export default function ControlPanel() {
 
   const canvasRef = useRef<HTMLDivElement>(null);
   const saveToPNG = () => {
+    track("qr-code-exported", { format: "png" });
     const canvas = canvasRef.current?.children[0] as HTMLCanvasElement;
     if (canvas) {
       const newCanvas = document.createElement("canvas");
@@ -61,6 +63,7 @@ export default function ControlPanel() {
   };
 
   const saveToWEBP = () => {
+    track("qr-code-exported", { format: "webp" });
     const canvas = canvasRef.current?.children[0] as HTMLCanvasElement;
     if (canvas) {
       const newCanvas = document.createElement("canvas");
@@ -84,6 +87,7 @@ export default function ControlPanel() {
   };
 
   const saveToClipboard = () => {
+    track("qr-code-exported", { format: "clipboard" });
     const canvas = canvasRef.current?.children[0] as HTMLCanvasElement;
     if (canvas) {
       canvas.toBlob((blob) => {
@@ -99,6 +103,7 @@ export default function ControlPanel() {
   };
 
   const saveToPDF = () => {
+    track("qr-code-exported", { format: "pdf" });
     const canvas = canvasRef.current?.children[0] as HTMLCanvasElement;
     if (canvas) {
       const imgData = canvas.toDataURL("image/png");
@@ -110,10 +115,6 @@ export default function ControlPanel() {
       pdf.output("dataurlnewwindow");
     }
   };
-
-  useEffect(() => {
-    console.log(errorCorrection);
-  }, [errorCorrection]);
 
   return (
     <div className="flex flex-col lg:flex-row lg:gap-6">
@@ -139,6 +140,7 @@ export default function ControlPanel() {
               />
               <div
                 onClick={async () => {
+                  track("qr-code-pasted");
                   const text = navigator.clipboard.readText();
                   setURL(await text);
                 }}
