@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="cs">
       <body className={cn("antialiased", font.className)}>
         <ThemeProvider attribute="class" defaultTheme="light">
           <div className="flex items-center ">
